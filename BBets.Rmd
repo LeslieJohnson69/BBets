@@ -35,36 +35,39 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
 
-```{r}
-URN = 1:365
-```
-
 # what is Brownlow's average profit/loss
 
-
 ```{r}
-classSize =35
-winAmount=1
-loseAmount=4.25
-bank = 0
-test = vector('numeric')
-saveBank = vector('numeric')
-for (j in 1:40){
-  bank = 0
-for(i in 1:637){
-test = sample(URN, size=classSize, replace = TRUE)
-ifelse(length(unique(test)) ==classSize,
-(bank=bank-loseAmount), (bank=bank+winAmount))
-saveBank[j] = bank 
-}
-}
-hist(saveBank)
+setsize = 1:365
 
 ```
 
+
 ```{r}
-favstats (saveBank)
+bdays <- 1:365
+class <- sample(bdays, size = 35, replace =TRUE, prob = NULL)
+sort(class)
+betwin <- unique(class)
+brownlowbucks = 0
+nClass = 1000
 ```
+
+```{r}
+for (i in 1:nClass) {
+class <- sample(bdays, size = 35, replace = TRUE, prob = NULL)
+length(class)
+length(betwin)
+brownlowbucks <- if(length(class) - length(betwin) > 0) brownlowbucks+1 else brownlowbucks = brownlowbucks -odds
+
+}
+brownlowbucks  
+
+```
+
+
+
+
+
 
 
 # What size of class makes the 2:1 bet fair?  
