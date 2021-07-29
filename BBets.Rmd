@@ -39,6 +39,7 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 ```{r}
 setsize = 1:365
+odds = 4.7
 
 ```
 
