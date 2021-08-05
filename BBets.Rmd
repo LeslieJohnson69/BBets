@@ -36,39 +36,43 @@ There are 3 questions and there should be at least 3 separate commits, at least 
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
 
-### try 2.0
+
+## try 2.0
 
 ```{r}
 BrLw(numClass = 35,odds = 2.0,countoDo = 637)
 ```
+The professor used the odds 2.0 he should have 300 to 320 dollars.   
 
 
-### try 3.0
+## try 3.0
 ```{r}
 BrLw(numClass = 35,odds = 3.0,countoDo = 637)
 ```
 
-### try 4.0
+By the professor using 3.0 he should have anywhere from 200 to 220 dollars, which is slightly less than 2.0 making less than the previous bet.  
+
+
+## try 4.0
 
 ```{r}
 BrLw(numClass = 35,odds = 4.0, countoDo = 637)
 ```
-
-
+With these odds of 4.0 he's losing money.  
 
 
 # What size of class makes the 2:1 bet fair?  
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
 
-### try 34
+## try 34
 
 
 ```{r}
 BrLw(numClass = 34,odds = 2.0, countoDo = 637)
 ```
+To make the bet fair we tested different class sizes. This one was tested with in a class size of 34 and Brownlow is winnings is quite high.
 
-
-### try 31
+## try 31
 
 ```{r}
 BrLw(numClass = 31,odds = 2.0,countoDo = 637)
@@ -76,24 +80,29 @@ BrLw(numClass = 31,odds = 2.0,countoDo = 637)
 ```
 
 
-### try 29
+This one was tested with a class size of 31 and we can see the numbers are as high.
+
+## try 29
 
 ```{r}
 BrLw(numClass = 29,odds = 2.0,countoDo = 637)
 
 ```
 
-### try 28
+This was tested with a class size of 29, and the number became quite low. 
+
+## try 28
 
 ```{r}
 BrLw(numClass = 28,odds = 2.0,countoDo = 637)
 
 ```
-
+We can see this Brownlow bet does not earn as much winnings as the previous class sizes.
 
 
 
 # In the class and payoff as described what is a 95% confidence interval for Brownlow's earnings?
+
 
 ```{r}
 fbank=numeric()
@@ -109,6 +118,14 @@ t.test(fbank)
 favstats(fbank)
 ```
 
+##  We will run at the given conditions 100 and get a 95% confidence interval
+
+
+##  There are a 1000 numbers in the bank-we sort them and take the middle 95%
+
+
+## confidenceinterval `r fbank[25]` to `r fbank[975]`
+
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 
@@ -117,3 +134,4 @@ favstats(fbank)
 
 <!--Discussion and conclusion here.  If professor Brownlow is consistantly making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
 
+It appears that the fair odds was roughly about 4.35 give or take, with is looking like its between 4 or 5. To make the bet fair we used different class settings. Whenever the code is ran we see we get different results. The 95% confidence interval for a class of 35 students changes as well. By changing the numbers and testing them in different ways we see winnings coming in with sporadic earnings.
